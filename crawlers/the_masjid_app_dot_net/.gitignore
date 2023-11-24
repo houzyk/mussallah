@@ -25,6 +25,4 @@ the_masjid_app_dot_net-*.tar
 # Temporary files, for example, from tests.
 /out/
 
-node_modules
-
 dets_simple_storage
