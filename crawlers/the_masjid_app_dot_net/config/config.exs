@@ -2,13 +2,13 @@ import Config
 
 config :crawly,
   closespider_timeout: 10,
-  concurrent_requests_per_domain: 1,
-  closespider_itemcount: 50,
+  concurrent_requests_per_domain: 4,
+  closespider_itemcount: 500,
   fetcher: {Crawly.Fetchers.Splash, [base_url: "http://localhost:3000/render"]},
   middlewares: [
-    # Crawly.Middlewares.DomainFilter,
-    # Crawly.Middlewares.UniqueRequest,
-    # {Crawly.Middlewares.UserAgent, user_agents: ["Google"]}
+    Crawly.Middlewares.DomainFilter,
+    Crawly.Middlewares.UniqueRequest,
+    {Crawly.Middlewares.UserAgent, user_agents: ["Google"]}
   ],
   pipelines: [
     # An item is expected to have all fields defined in the fields list
@@ -18,5 +18,5 @@ config :crawly,
     # items with the same urls
     # {Crawly.Pipelines.DuplicatesFilter, item_id: :url},
     Crawly.Pipelines.JSONEncoder,
-    {Crawly.Pipelines.WriteToFile, extension: "json", folder: "./out"}
+    {Crawly.Pipelines.WriteToFile, extension: "jl", folder: "./out"}
   ]
