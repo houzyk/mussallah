@@ -7,7 +7,7 @@ npm install
 node render.js
 ```
 
-## Alternatively, run Render Server as Docker container
+### Alternatively, run Render Server as Docker container
 
 ```sh
 docker build -t the-masjid-app-dot-net-render-server-img .
